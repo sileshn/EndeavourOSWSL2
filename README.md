@@ -39,7 +39,7 @@ EndeavourOSWSL2 has the following features during the installation stage.
   ```dos
   wsl --set-default-version 2
   ```
-* Run Arch.exe to extract rootfs and register to WSL
+* Run EndeavourOS.exe to extract rootfs and register to WSL
 
 **Note:**
 Exe filename is using the instance name to register. If you rename it you can register with a diffrent name and have multiple installs.
@@ -47,7 +47,7 @@ Exe filename is using the instance name to register. If you rename it you can re
 ## How to setup
 EndeavourOSWSL2 will ask you to create a new user during its first run. If you choose to create a new user during the first run, the steps below are not required unless you want to create additional users.
 
-Open Arch.exe and run the following commands.
+Open EndeavourOS.exe and run the following commands.
 ```dos
 passwd
 useradd -m -g users -G wheel -s /bin/bash <username>
@@ -58,7 +58,7 @@ exit
 
 You can set the user you created as default user using 2 methods.
 
-Open Arch.exe, run the following command (replace username with the actual username you created).
+Open EndeavourOS.exe, run the following command (replace username with the actual username you created).
 ```dos
 sed -i '/\[user\]/a default = username' /etc/wsl.conf
 ```
@@ -67,9 +67,9 @@ Shutdown and restart the distro (this step is important).
 
 (or)
 
-Execute the command below in a windows cmd terminal from the directory where Arch.exe is installed.
+Execute the command below in a windows cmd terminal from the directory where EndeavourOS.exe is installed.
 ```dos
->Arch.exe config --default-user <username>
+>EndeavourOS.exe config --default-user <username>
 ```
 
 ## How to use installed instance
@@ -160,40 +160,40 @@ You may need to install a newer release if additional features have been added/r
 
 ## How to uninstall instance
 ```dos
->Arch.exe clean
+>EndeavourOS.exe clean
 
 ```
 
 ## How to backup instance
 export to backup.tar.gz
 ```cmd
->Arch.exe backup --tgz
+>EndeavourOS.exe backup --tgz
 ```
 export to backup.ext4.vhdx.gz
 ```cmd
->Arch.exe backup --vhdxgz
+>EndeavourOS.exe backup --vhdxgz
 ```
 
 ## How to restore instance
 
 There are 2 ways to do it. 
 
-Rename the backup to rootfs.tar.gz and run Arch.exe
+Rename the backup to rootfs.tar.gz and run EndeavourOS.exe
 
 (or)
 
 .tar(.gz)
 ```cmd
->Arch.exe install backup.tar.gz
+>EndeavourOS.exe install backup.tar.gz
 ```
 .ext4.vhdx(.gz)
 ```cmd
->Arch.exe install backup.ext4.vhdx.gz
+>EndeavourOS.exe install backup.ext4.vhdx.gz
 ```
 
 You may need to run the command below in some circumstances.
 ```cmd
->Arch.exe --default-uid 1000
+>EndeavourOS.exe --default-uid 1000
 ```
 
 ## How to build from source
