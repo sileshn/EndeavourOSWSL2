@@ -1,4 +1,4 @@
-#Disclaimer
+# Disclaimer
 
 This project is in no way related to or created by the official EndeavourOS team or its members. It is solely a project of mine. Do not go around spamming the EndeavourOS forum if you come across any issues. You certainely won't receive any help. Mention your issues here and I'll try to find a solution.
 
