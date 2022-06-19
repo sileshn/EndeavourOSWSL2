@@ -1,4 +1,9 @@
+#Disclaimer
+
+This project is in no way related to or created by the official EndeavourOS team or its members. It is solely a project of mine. Do not go around spamming the EndeavourOS forum if you come across any issues. You certainely won't receive any help. Mention your issues here and I'll try to find a solution.
+
 # EndeavourOS for WSL2
+
 Running minimal EndeavourOS bootstrap on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl). This does not come with all the packages required to run a GUI ootb!!! You can take a look at [this](https://github.com/endeavouros-team/EndeavourOS-ISO/blob/main/packages.x86_64) package list if you are interested in implementing GUI support. Even then, success is not guaranteed.
 
 [![Screenshot-2022-06-19-144944.png](https://i.postimg.cc/fTVSmxgk/Screenshot-2022-06-19-144944.png)](https://postimg.cc/hfqGq7nq)
