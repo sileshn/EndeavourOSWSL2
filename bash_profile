@@ -1,4 +1,4 @@
-# First run script for ArchWSL.
+# First run script for EndeavourOSWSL2.
 
 blu=$(tput setaf 4)
 cyn=$(tput setaf 6)
@@ -22,11 +22,11 @@ test -e /mnt/c/Users/Public/vhdresize.txt && rm /mnt/c/Users/Public/vhdresize.tx
 test -e /mnt/c/Users/Public/shutdown.cmd && rm /mnt/c/Users/Public/shutdown.cmd
 test -e ~/vhdresize.txt && rm ~/vhdresize.txt
 test -e ~/shutdown.cmd && rm ~/shutdown.cmd
-figlet -t -k -f /usr/share/figlet/fonts/mini.flf "Welcome to ArchWSL" | lolcat
+figlet -t -k -f /usr/share/figlet/fonts/mini.flf "Welcome to EndeavourOS for WSL2" | lolcat
 echo -e "\033[33;7mDo not interrupt or close the terminal window till script finishes execution!!!\n\033[0m"
 
 if [ "$disksize" -le 274877906944 ]; then
-    echo -e ${grn}"ArchWSL's VHD has a default maximum size of 256GB. Disk space errors which occur if size exceeds 256GB can be fixed by expanding the VHD. Would you like to resize your VHD? More information on this process is available at \033[36mhttps://docs.microsoft.com/en-us/windows/wsl/vhd-size\033[32m."${txtrst} | fold -sw $width
+    echo -e ${grn}"EndeavourOSWSL2's VHD has a default maximum size of 256GB. Disk space errors which occur if size exceeds 256GB can be fixed by expanding the VHD. Would you like to resize your VHD? More information on this process is available at \033[36mhttps://docs.microsoft.com/en-us/windows/wsl/vhd-size\033[32m."${txtrst} | fold -sw $width
     select yn in "Yes" "No"; do
         case $yn in
             Yes)
@@ -92,7 +92,7 @@ if [ "$disksize" -le 274877906944 ]; then
                 done
 
                 secs=3
-                printf ${ylw}"\nPlease grant diskpart elevated permissions when requested. ArchWSL will restart after disk resize.\n"${txtrst}
+                printf ${ylw}"\nPlease grant diskpart elevated permissions when requested. EndeavourOSWSL2 will restart after disk resize.\n"${txtrst}
                 printf ${red}"Warning!!! Any open wsl distros will be shutdown.\n\n"${txtrst}
                 while [ $secs -gt 0 ]; do
                     printf "\r\033[KShutting down in %.d seconds. " $((secs--))
@@ -113,9 +113,6 @@ echo -e ${grn}"Initializing and populating keyring..."${txtrst}
 pacman-key --init >/dev/null 2>&1
 pacman-key --populate >/dev/null 2>&1
 setcap cap_net_raw+p /usr/sbin/ping
-rm /var/lib/dbus/machine-id
-dbus-uuidgen --ensure=/etc/machine-id
-dbus-uuidgen --ensure
 
 echo -e ${grn}"Do you want to create a new user?"${txtrst}
 select yn in "Yes" "No"; do
@@ -147,7 +144,7 @@ select yn in "Yes" "No"; do
                     cp ~/shutdown.cmd /mnt/c/Users/Public
 
                     secs=3
-                    printf ${ylw}"\nTo set the new user as the default user, ArchWSL will shutdown and restart!!!\n\n"${txtrst}
+                    printf ${ylw}"\nTo set the new user as the default user, EndeavourOSWSL2 will shutdown and restart!!!\n\n"${txtrst}
                     while [ $secs -gt 0 ]; do
                         printf "\r\033[KShutting down in %.d seconds. " $((secs--))
                         sleep 1

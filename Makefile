@@ -1,10 +1,10 @@
-OUT_ZIP=ArchWSL2.zip
-LNCR_EXE=Arch.exe
+OUT_ZIP=EndeavourOSWSL2.zip
+LNCR_EXE=EndeavourOS.exe
 
 DLR=curl
 DLR_FLAGS=-L
 LNCR_ZIP_URL=https://github.com/yuk7/wsldl/releases/download/22020900/icons.zip
-LNCR_ZIP_EXE=Arch.exe
+LNCR_ZIP_EXE=EndeavourOS.exe
 
 all: $(OUT_ZIP)
 
@@ -46,9 +46,9 @@ rootfs: base.tar
 
 base.tar:
 	@echo -e '\e[1;31mExporting base.tar using docker...\e[m'
-	docker run --net=host --name archwsl archlinux:base-devel /bin/bash -c "curl -s 'https://archlinux.org/mirrorlist/?country=SG&country=US&country=DE&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist; pacman --noconfirm --needed -Sy pacman-contrib; cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup; rankmirrors -n 5 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist; rm /etc/pacman.d/mirrorlist.backup; pacman-key --init; pacman-key --populate; pacman-key -r A2861ABFD897DD37; pacman-key --lsign-key A2861ABFD897DD37; sed -ibak -e 's/#Color/Color/g' -e 's/CheckSpace/#CheckSpace/g' /etc/pacman.conf; sed -ibak -e 's/IgnorePkg/#IgnorePkg/g' /etc/pacman.conf; echo '[wslutilities]' | sudo tee -a /etc/pacman.conf >/dev/null 2>&1; echo 'Server = https://pkg.wslutiliti.es/arch/' | sudo tee -a /etc/pacman.conf >/dev/null 2>&1; echo 'export BROWSER="wslview"' | sudo tee -a /etc/skel/.bashrc >/dev/null 2>&1; pacman --noconfirm -Syyu; pacman --noconfirm --needed -Sy aria2 aspell ccache dbus dconf dos2unix figlet git grep hspell hunspell inetutils iputils iproute2 keychain libvoikko linux-tools lolcat nano ntp nuspell openssh procps socat sudo usbutils vi vim wget wslu xdg-utils; mkdir -p /etc/pacman.d/hooks; echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel; yes | LC_ALL=en_US.UTF-8 pacman -Scc"
-	docker export --output=base.tar archwsl
-	docker rm -f archwsl
+	docker run --net=host --name endeavouroswsl archlinux:base-devel /bin/bash -c "curl -s 'https://archlinux.org/mirrorlist/?country=SG&country=US&country=DE&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist; pacman-key --init; pacman-key -r A2861ABFD897DD37 497AF50C92AD2384C56E1ACA003DB8B0CB23504F; pacman-key --lsign-key A2861ABFD897DD37 497AF50C92AD2384C56E1ACA003DB8B0CB23504F; pacman-key --populate; curl -s https://raw.githubusercontent.com/endeavouros-team/EndeavourOS-ISO/main/airootfs/etc/pacman.conf > /etc/pacman.conf; curl -s https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist > /etc/pacman.d/endeavouros-mirrorlist; sed -ibak -e 's/#Color/Color/g' -e 's/CheckSpace/#CheckSpace/g' /etc/pacman.conf; sed -ibak -e 's/IgnorePkg/#IgnorePkg/g' /etc/pacman.conf; echo '[wslutilities]' | sudo tee -a /etc/pacman.conf >/dev/null 2>&1; echo 'Server = https://pkg.wslutiliti.es/arch/' | sudo tee -a /etc/pacman.conf >/dev/null 2>&1; echo 'export BROWSER="wslview"' | sudo tee -a /etc/skel/.bashrc >/dev/null 2>&1; pacman --noconfirm -Syyu; pacman --noconfirm --needed -Sy aria2 aspell base-devel ccache dbus dconf dos2unix endeavouros-mirrorlist endeavouros-keyring eos-apps-info eos-hooks eos-log-tool eos-packagelist eos-rankmirrors figlet git grep hspell hunspell inetutils iputils iproute2 keychain libvoikko linux-tools lolcat lsb-release man nano ntp nuspell openssh procps rate-mirrors reflector reflector-simple socat sudo usbutils vi vim wget xdg-utils; mkdir -p /etc/pacman.d/hooks; echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel; yes | LC_ALL=en_US.UTF-8 pacman -Scc"
+	docker export --output=base.tar endeavouroswsl
+	docker rm -f endeavouroswsl
 
 clean:
 	@echo -e '\e[1;31mCleaning files...\e[m'

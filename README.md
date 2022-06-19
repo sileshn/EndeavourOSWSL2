@@ -1,16 +1,16 @@
-# ArchWSL2
-Archlinux on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl).
+# EndeavourOS for WSL2
+Running minimal EndeavourOS bootstrap on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl). This does not come with all the packages required to run a GUI ootb!!! You can take a look at [this](https://github.com/endeavouros-team/EndeavourOS-ISO/blob/main/packages.x86_64) package list if you are interested in implementing GUI support. Even then, success is not guaranteed.
 
-[![Screenshot-2022-06-15-012741.png](https://i.postimg.cc/wTbkHDWH/Screenshot-2022-06-15-012741.png)](https://postimg.cc/qzyKx6VZ)
-[![Github All Releases](https://img.shields.io/github/downloads/sileshn/ArchWSL2/total?logo=github&style=flat-square)](https://github.com/sileshn/ArchWSL2/releases) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/sileshn/ArchWSL2?display_name=release&label=latest%20release&style=flat-square)](https://github.com/sileshn/ArchWSL2/releases/latest)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License](https://img.shields.io/github/license/sileshn/ArchWSL2.svg?style=flat-square)](https://github.com/sileshn/ArchWSL2/blob/main/LICENSE)
+[![Screenshot-2022-06-19-144944.png](https://i.postimg.cc/fTVSmxgk/Screenshot-2022-06-19-144944.png)](https://postimg.cc/hfqGq7nq)
+[![Github All Releases](https://img.shields.io/github/downloads/sileshn/EndeavourOSWSL2/total?logo=github&style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/releases) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/sileshn/EndeavourOSWSL2?display_name=release&label=latest%20release&style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/releases/latest)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License](https://img.shields.io/github/license/sileshn/EndeavourOSWSL2.svg?style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/blob/main/LICENSE)
 
 ## Features and important information
-ArchWSL2 has the following features during the installation stage.
+EndeavourOSWSL2 has the following features during the installation stage.
 * Increase virtual disk size from the default 256GB
 * Create a new user and set the user as default
-* ArchWSL2 supports systemd using diddledani's [one-script-wsl2-systemd](https://github.com/diddledani/one-script-wsl2-systemd). You can do a minimal setup using [this](https://github.com/diddledani/one-script-wsl2-systemd#minimal-manual-installation) procedure.
-* ArchWSL2 includes a wsl.conf file which only has [section headers](https://i.postimg.cc/MZ4DC1Fw/Screenshot-2022-02-02-071533.png). Users can use this file to configure the distro to their liking. You can read more about wsl.conf and its configuration settings [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
+* EndeavourOSWSL2 supports systemd using diddledani's [one-script-wsl2-systemd](https://github.com/diddledani/one-script-wsl2-systemd). You can do a minimal setup using [this](https://github.com/diddledani/one-script-wsl2-systemd#minimal-manual-installation) procedure.
+* EndeavourOSWSL2 includes a wsl.conf file which only has [section headers](https://i.postimg.cc/MZ4DC1Fw/Screenshot-2022-02-02-071533.png). Users can use this file to configure the distro to their liking. You can read more about wsl.conf and its configuration settings [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
 
 ## Requirements
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
@@ -33,7 +33,7 @@ ArchWSL2 has the following features during the installation stage.
 
 ## How to install
 * Make sure all the steps mentioned under "Requirements" are completed.
-* [Download](https://github.com/sileshn/ArchWSL2/releases/latest) installer zip
+* [Download](https://github.com/sileshn/EndeavourOSWSL2/releases/latest) installer zip
 * Extract all files in zip file to same directory
 * Set version 2 as default. Note that this step is required only for manual installation.
   ```dos
@@ -45,7 +45,7 @@ ArchWSL2 has the following features during the installation stage.
 Exe filename is using the instance name to register. If you rename it you can register with a diffrent name and have multiple installs.
 
 ## How to setup
-ArchWSL2 will ask you to create a new user during its first run. If you choose to create a new user during the first run, the steps below are not required unless you want to create additional users.
+EndeavourOSWSL2 will ask you to create a new user during its first run. If you choose to create a new user during the first run, the steps below are not required unless you want to create additional users.
 
 Open Arch.exe and run the following commands.
 ```dos
@@ -146,7 +146,7 @@ Usage :
 ```
 
 ## How to update
-Updating Archlinux doesn't require you to download and install a newer release everytime. Usually all it takes is to run the command below to update the instance.
+Updating EndeavourOSWSL2 doesn't require you to download and install a newer release everytime. Usually all it takes is to run the command below to update the instance.
 ```dos
 $sudo pacman -Syu
 ```
@@ -201,16 +201,16 @@ You may need to run the command below in some circumstances.
 Docker, tar, zip, unzip, bsdtar need to be installed.
 
 ```dos
-git clone git@gitlab.com:sileshn/ArchWSL2.git
-cd ArchWSL2
+git clone git@gitlab.com:sileshn/EndeavourOSWSL2.git
+cd EndeavourOSWSL2
 make
 ```
-Copy the ArchWSL2.zip file to a safe location and run the command below to clean.
+Copy the EndeavourOSWSL2.zip file to a safe location and run the command below to clean.
 ```dos
 make clean
 ```
 
-## How to run docker in ArchWSL2 without using docker desktop
+## How to run docker in EndeavourOSWSL2 without using docker desktop
 Install docker.
 ```dos
 sudo pacman -S docker
