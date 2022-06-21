@@ -4,7 +4,7 @@ This project is in no way related to or created by the official EndeavourOS team
 
 # EndeavourOS for WSL2
 
-Running minimal EndeavourOS bootstrap on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl). This does not come with all the packages required to run a GUI ootb!!! You can take a look at [this](https://github.com/endeavouros-team/EndeavourOS-ISO/blob/main/packages.x86_64) package list if you are interested in implementing GUI support. Even then, success is not guaranteed.
+Running minimal EndeavourOS bootstrap on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl). This does not come with all the packages required to run a GUI ootb!!! You can take a look at [this](https://github.com/endeavouros-team/EndeavourOS-ISO/blob/main/packages.x86_64) package list or use the built-in [eos-packagelist](https://github.com/endeavouros-team/EndeavourOS-packages-lists) command to install the required packages if you are interested in implementing GUI support. Even then, success is not guaranteed.
 
 [![Screenshot-2022-06-19-144944.png](https://i.postimg.cc/fTVSmxgk/Screenshot-2022-06-19-144944.png)](https://postimg.cc/hfqGq7nq)
 [![Github All Releases](https://img.shields.io/github/downloads/sileshn/EndeavourOSWSL2/total?logo=github&style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/releases) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/sileshn/EndeavourOSWSL2?display_name=release&label=latest%20release&style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/releases/latest)
