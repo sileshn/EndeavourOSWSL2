@@ -6,7 +6,7 @@ This project is in no way related to or created by the official EndeavourOS team
 
 Running minimal EndeavourOS bootstrap on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl). This does not come with all the packages required to run a GUI ootb!!! You can take a look at [this](https://github.com/endeavouros-team/EndeavourOS-ISO/blob/main/packages.x86_64) package list or use the built-in [eos-packagelist](https://github.com/endeavouros-team/EndeavourOS-packages-lists) command to install the required packages if you are interested in implementing GUI support. Even then, success is not guaranteed.
 
-[![Screenshot-2022-06-19-144944.png](https://i.postimg.cc/fTVSmxgk/Screenshot-2022-06-19-144944.png)](https://postimg.cc/hfqGq7nq)
+[![Screenshot-2022-07-26-063310.png](https://i.postimg.cc/V6CyJBm0/Screenshot-2022-07-26-063310.png)](https://postimg.cc/qh4DYKtp)
 [![Github All Releases](https://img.shields.io/github/downloads/sileshn/EndeavourOSWSL2/total?logo=github&style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/releases) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/sileshn/EndeavourOSWSL2?display_name=release&label=latest%20release&style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/releases/latest)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License](https://img.shields.io/github/license/sileshn/EndeavourOSWSL2.svg?style=flat-square)](https://github.com/sileshn/EndeavourOSWSL2/blob/main/LICENSE)
 
