@@ -42,14 +42,14 @@ rootfs: base.tar
 	sudo cp wsl.conf rootfs/etc/wsl.conf
 	sudo cp wsl-distribution.conf rootfs/etc/wsl-distribution.conf
 	sudo cp endeavouros.ico rootfs/usr/lib/wsl/endeavouros.ico
-	sudo cp -f setcap-iputils.hook rootfs/etc/pacman.d/hooks/50-setcap-iputils.hook
+	sudo cp setcap-iputils.hook rootfs/etc/pacman.d/hooks/50-setcap-iputils.hook
 	sudo cp bash_profile rootfs/root/.bash_profile
 	sudo cp wslg-init.service rootfs/usr/lib/systemd/system/wslg-init.service
 	sudo chmod +x rootfs
 
 base.tar:
 	@echo -e '\e[1;31mExporting base.tar using docker...\e[m'
-	docker run --net=host --ulimit nofile=1024:10240 --name endeavouroswsl archlinux:base-devel /bin/bash -c "pacman --noconfirm --disable-sandbox --needed -Sy archlinux-keyring pacman-contrib reflector rsync; reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist; pacman-key --init; pacman-key -r A367FB01AE54040E; pacman-key --lsign-key A367FB01AE54040E; curl -s https://gitlab.com/endeavouros-filemirror/EndeavourOS-ISO/-/raw/main/airootfs/etc/pacman.conf > /etc/pacman.conf; curl -s https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist > /etc/pacman.d/endeavouros-mirrorlist; sed -ibak -e 's/#Color/Color/g' -e 's/CheckSpace/#CheckSpace/g' /etc/pacman.conf; sed -ibak -e 's/IgnorePkg/#IgnorePkg/g' /etc/pacman.conf; pacman --noconfirm --disable-sandbox --needed -Sy endeavouros-keyring; pacman --noconfirm --disable-sandbox -Syyu; pacman-key --populate; pacman --noconfirm --disable-sandbox --needed -Sy aria2 aspell autoconf-archive base-devel bc ccache dconf dbus dnsutils docbook-xsl dos2unix doxygen endeavouros-mirrorlist eos-apps-info eos-hooks eos-log-tool eos-packagelist eos-rankmirrors figlet git grep hspell hunspell inetutils iputils iproute2 keychain libxcrypt-compat libvoikko linux-tools lolcat lsb-release man nano ntp nuspell openssh procps rate-mirrors reflector-simple socat sudo usbutils vi vim wget xdg-utils xmlto yay yelp-tools; mkdir -p /etc/pacman.d/hooks; echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel; sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && locale-gen; cp /usr/lib/os-release /etc/os-release; systemd-machine-id-setup; rm /var/lib/dbus/machine-id; dbus-uuidgen --ensure=/etc/machine-id; dbus-uuidgen --ensure; yes | LC_ALL=en_US.UTF-8 pacman -Scc; mkdir -p /usr/lib/wsl"
+	docker run --net=host --ulimit nofile=1024:10240 --name endeavouroswsl alex5402/endeavouros:latest /bin/bash -c "sed -ibak -e 's/#Color/Color/g' -e 's/CheckSpace/#CheckSpace/g' /etc/pacman.conf; sed -ibak -e 's/IgnorePkg/#IgnorePkg/g' /etc/pacman.conf; mkdir -p /etc/pacman.d/hooks; touch /etc/pacman.d/hooks/eos-reboot-required.hook; pacman --noconfirm --disable-sandbox --needed -Sy endeavouros-keyring; pacman --noconfirm --disable-sandbox -Syyu; pacman-key --populate; pacman --noconfirm --disable-sandbox --needed -Sy aria2 aspell autoconf-archive base-devel bc ccache dconf dbus dnsutils docbook-xsl dos2unix doxygen figlet git grep hspell hunspell inetutils iputils iproute2 keychain libxcrypt-compat libvoikko linux-tools lolcat man nano ntp nuspell openssh procps socat sudo usbutils vi vim wget xdg-utils xmlto yay yelp-tools; echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel; sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && locale-gen; cp /usr/lib/os-release /etc/os-release; systemd-machine-id-setup; rm /var/lib/dbus/machine-id; dbus-uuidgen --ensure=/etc/machine-id; dbus-uuidgen --ensure; yes | LC_ALL=en_US.UTF-8 pacman -Scc; mkdir -p /usr/lib/wsl"
 	docker export --output=base.tar endeavouroswsl
 	docker rm -f endeavouroswsl
 
@@ -62,4 +62,4 @@ clean:
 	-rm rootfs.tar.gz
 	-sudo rm -r rootfs
 	-rm base.tar
-	-docker rmi archlinux:base-devel -f
+	-docker rmi alex5402/endeavouros:latest -f
