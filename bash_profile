@@ -16,7 +16,7 @@ echo -e "\033[33;7mDo not interrupt or close the terminal window till script fin
 echo -e ${grn}"Initializing and populating keyring..."${txtrst}
 pacman-key --init >/dev/null 2>&1
 pacman-key --populate >/dev/null 2>&1
-pacman -Sy archlinux-keyring --noconfirm >/dev/null 2>&1
+pacman --noconfirm --needed -Sy archlinux-keyring endeavouros-keyring >/dev/null 2>&1
 setcap cap_net_raw+p /usr/sbin/ping
 sed -i '/PS1/d' /etc/skel/.bashrc
 echo "PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '" | tee -a /etc/skel/.bashrc >/dev/null 2>&1
